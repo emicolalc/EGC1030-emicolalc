@@ -26,3 +26,5 @@ deploy:
   app: emicolalc-1030
   strategy: git
   api_key: $HEROKU_AUTH_TOKEN
+  on:
+    branch: master
