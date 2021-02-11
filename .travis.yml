@@ -16,7 +16,13 @@ install:
   - pip install coverage
 script:
   - cd decide
+  - cp travis_local_settings.py local_settings.py
   - coverage run --branch --source=. ./manage.py test mixnet --keepdb
 branches:
   only:
   - master
+deploy:
+  provider: heroku
+  app: emicolalc-1030
+  strategy: git
+  api_key: $HEROKU_AUTH_TOKEN
